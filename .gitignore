@@ -103,7 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-tf_files
+tf_files/car_test
+tf_files/car_train
 .idea/
 **/*~
 libs/
