@@ -84,7 +84,7 @@ $ curl -X GET \
 {YOUR_CODE_PATH}/image-classification-grab-ai-sea-challenge
 ➜  image-classification-grab-ai-sea-challenge git:(master) cd tf_files
 ➜  tf_files git:(master) ls
-bottlenecks  car_test  car_train  models  retrained_graph.pb  retrained_labels.txt
+car_test  car_train
 ➜  tf_files git:(master) cd car_train
 ➜  car_train git:(master) ls
 'Acura Integra Type R 2001'                               'Chevrolet Silverado 1500 Classic Extended Cab 2007'  'Hyundai Elantra Touring Hatchback 2012'
@@ -128,7 +128,21 @@ WARNING:tensorflow:From /home/swaminathan/Documents/myrepo/image-classification-
 ...
 ```
 
+**Things to be noted**
+- We use the [Mobilenet](https://ai.googleblog.com/2017/06/mobilenets-open-source-models-for.html) convolution network to perform the image categorization.
+- Here `IMAGE_SIZE` is used as **224px**. More the more pixel better accuracy
+- Here `ARCHITECTURE` is used as **mobilenet_0.50_${IMAGE_SIZE}**. Model factor **0.50** is used here. Model factor ranges between 0.25, 0.5, 0.75, 1.
 - Here only 500 iterations are used (`--how_many_training_steps=500`). Inorder to improve the accuracy `--how_many_training_steps=500` parameter can be removed, i.e. default 4000 iterations will be used which improves the accuracy.
+- After the training the folder looks like below
+
+```
+➜  tf_files git:(master) pwd
+{YOUR_CODE_PATH}/image-classification-grab-ai-sea-challenge/tf_files
+➜  tf_files git:(master) ls
+bottlenecks  car_test  car_train  models  retrained_graph.pb  retrained_labels.txt
+```
+
+- Here the model_graph `retrained_graph.pb` is generated after training and labels for the cars categories are populated in the `retrained_labels.txt` file(i.e. the folder names where the cars images are placed)
 
 ### References
 This repository is created based on the below references
