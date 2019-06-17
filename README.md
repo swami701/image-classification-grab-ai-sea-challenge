@@ -42,7 +42,7 @@ $ curl -X GET 'http://localhost:5000/health'
 }
 ```
 
-##### Image Classification**
+##### Image Classification
 
 **Testing the online image**
 - Parameters
