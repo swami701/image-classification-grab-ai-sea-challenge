@@ -106,6 +106,7 @@ venv.bak/
 tf_files/car_test
 tf_files/car_train
 tf_files/bottlenecks
+tf_files/models
 .idea/
 **/*~
 libs/
