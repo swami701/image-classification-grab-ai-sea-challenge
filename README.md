@@ -31,38 +31,44 @@ Once the docker container is up
 - Health Check
 ```
 $ curl -X GET 'http://localhost:5000/health'
-{"status": "true"} 
+
+{
+  "status": "true"
+}
 ```
 
 - Image Classification
 ```
 $ curl -X GET \
-  'http://localhost:5000/classify?url=/app/tf_files/car_test/Bentley%20Mulsanne%20Sedan%202011/02587.jpg&type=local'
-{
-  "result": [
-    {
-      "category": "audi s6 sedan 2011",
-      "score": "0.14124"
-    },
-    {
-      "category": "bentley mulsanne sedan 2011",
-      "score": "0.13910"
-    },
-    {
-      "category": "bentley continental gt coupe 2012",
-      "score": "0.05855"
-    },
-    {
-      "category": "toyota 4runner suv 2012",
-      "score": "0.04915"
-    },
-    {
-      "category": "bmw x6 suv 2012",
-      "score": "0.04209"
-    }
-  ]
+  'http://localhost:5000/classify?path=/app/tf_files/car_test/Bentley%20Mulsanne%20Sedan%202011/02587.jpg&type=local'
+
+{  
+   "result":[  
+      {  
+         "category":"bentley mulsanne sedan 2011",
+         "score":"0.68615"
+      },
+      {  
+         "category":"bmw x5 suv 2007",
+         "score":"0.07509"
+      },
+      {  
+         "category":"audi s6 sedan 2011",
+         "score":"0.04333"
+      },
+      {  
+         "category":"bentley continental flying spur sedan 2007",
+         "score":"0.02404"
+      },
+      {  
+         "category":"chevrolet tahoe hybrid suv 2012",
+         "score":"0.02164"
+      }
+   ]
 }
 ```
+
+- Category classification with the higher score determines the car's category.
 
 ### Training the model with car training images
 **Pre-requisites**

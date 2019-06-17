@@ -156,7 +156,7 @@ class LabelImage(flask_restful.Resource, mixins.RegisterableMixin):
       try:
         parser = reqparse.RequestParser()
         parser.add_argument(
-            'url',
+            'path',
             required=True,
             help='Image URL required'
             )
@@ -166,14 +166,14 @@ class LabelImage(flask_restful.Resource, mixins.RegisterableMixin):
             help='Type of the file url or local'
             )
         args = parser.parse_args()
-        url = args['url']
+        url = args['path']
         type = args['type']
         if type == 'url':
           # Filename with uuid
           uid = str(uuid.uuid1())
-          fileName = 'tmp/{}.jpg'.format(uid)
+          fileName = '/tmp/{}.jpg'.format(uid)
           # Downloading and Saving the file to a local tmp directory
-          urlretrieve(args['url'],fileName)
+          urlretrieve(url,fileName)
         else:
           fileName = url
         result = main(fileName)
