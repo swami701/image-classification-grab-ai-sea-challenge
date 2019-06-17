@@ -33,7 +33,7 @@ NOTE: Here I've used PORT variable as 5000
 
 - Once the docker container is up and running. Image classification can be tested.
 
-**Health Check**
+##### Health Check
 ```
 $ curl -X GET 'http://localhost:5000/health'
 
@@ -42,11 +42,12 @@ $ curl -X GET 'http://localhost:5000/health'
 }
 ```
 
-**Image Classification**
-- Testing the online image
-  - Parameters
-    - `type`: `url` 
-    - `path`: `https://st.motortrend.com/uploads/sites/10/2015/09/2012-BMW-M3-coupe-front-three-quarter1.jpg`(Some image url)
+##### Image Classification**
+
+**Testing the online image**
+- Parameters
+  - `type`: `url` 
+  - `path`: `https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/11q1/394021/2012-ferrari-ff-photo-394052-s-986x603.jpg`(Some image url)
 
 ```
 ➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \
@@ -78,10 +79,10 @@ $ curl -X GET 'http://localhost:5000/health'
 }
 ```
 
-- Testing the local image from the local path
-  - Parameters
-    - `type`: `local` 
-    - `path`: `/app/tf_files/car_test/Bentley Mulsanne Sedan 2011/02587.jpg`(Local path to the file)
+**Testing the local image from the local path**
+- Parameters
+  - `type`: `local` 
+  - `path`: `/app/tf_files/car_test/Bentley Mulsanne Sedan 2011/02587.jpg`(Local path to the file)
 
 ```
 ➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \
