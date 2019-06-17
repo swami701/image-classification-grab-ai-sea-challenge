@@ -77,6 +77,7 @@ $ curl -X GET \
 
 **Organising the training images**
 - Car training and the test images can be downloaded [here](https://ai.stanford.edu/~jkrause/cars/car_dataset.html)
+- I've downloaded and placed in `{YOUR_CODE_PATH}/image-classification-grab-ai-sea-challenge/tf_files/car_train`. More information below.
 - The Car training images categorized in to the folders as below.
 
 ```
@@ -116,7 +117,6 @@ done.
 (venv) ➜  image-classification-grab-ai-sea-challenge git:(master) ✗ export ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}"
 (venv) ➜  image-classification-grab-ai-sea-challenge git:(master) ✗ python -m scripts.retrain \                       
   --bottleneck_dir=tf_files/bottlenecks \
-  --how_many_training_steps=500 \
   --model_dir=tf_files/models/ \
   --output_graph=tf_files/retrained_graph.pb \
   --output_labels=tf_files/retrained_labels.txt \
@@ -130,10 +130,10 @@ WARNING:tensorflow:From /home/swaminathan/Documents/myrepo/image-classification-
 
 **Things to be noted**
 - We use the [Mobilenet](https://ai.googleblog.com/2017/06/mobilenets-open-source-models-for.html) convolution network to perform the image categorization.
-- Here `IMAGE_SIZE` is used as **224px**. More the more pixel better accuracy
+- Here `IMAGE_SIZE` is used as **224px**. More the more pixel better accuracy. Here we used the maximum pixel supported by the mobilenet.
 - Here `ARCHITECTURE` is used as **mobilenet_0.50_${IMAGE_SIZE}**. Model factor **0.50** is used here. Model factor ranges between 0.25, 0.5, 0.75, 1.
-- Here only 500 iterations are used (`--how_many_training_steps=500`). Inorder to improve the accuracy `--how_many_training_steps=500` parameter can be removed, i.e. default 4000 iterations will be used which improves the accuracy.
-- After the training the folder looks like below
+- Here 4000 iterations are used. If `--how_many_training_steps=500` is specified, then it uses 500 iterations and it takes less time to train the model. More number of iterations better the accuracy.
+- After the training the folder looks will like the below
 
 ```
 ➜  tf_files git:(master) pwd
