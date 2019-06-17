@@ -19,8 +19,8 @@ This project uses the [TensorFlow](https://www.tensorflow.org) library for the i
 - Clone this repo
 - Run the app using following commands
 ```
-$ docker build -t imgclassify .
-$ docker run -it -p 5000:5000 --name=imgclassify imgclassify
+➜  image-classification-grab-ai-sea-challenge git:(master) docker build -t imgclassify .
+➜  image-classification-grab-ai-sea-challenge git:(master) docker run -it -p 5000:5000 --name=imgclassify imgclassify
 ```
 
 NOTE: Here I've used PORT variable as 5000
@@ -28,7 +28,13 @@ NOTE: Here I've used PORT variable as 5000
 ### Example executions for app
 Once the docker container is up
 
-- Health Check
+Below commands can be used to check whether docker is up and running
+```
+➜  image-classification-grab-ai-sea-challenge git:(master) docker ps
+
+```
+
+**Health Check**
 ```
 $ curl -X GET 'http://localhost:5000/health'
 
@@ -37,7 +43,9 @@ $ curl -X GET 'http://localhost:5000/health'
 }
 ```
 
-- Image Classification
+**Image Classification**
+- Testing the local image from the path**
+- 
 ```
 $ curl -X GET \
   'http://localhost:5000/classify?path=/app/tf_files/car_test/Bentley%20Mulsanne%20Sedan%202011/02587.jpg&type=local'
