@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+tf_files
+.idea/
+**/*~
+libs/
+local.properties
+.vscode/
+tmp/
