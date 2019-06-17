@@ -122,11 +122,14 @@ WARNING:tensorflow:From /home/swaminathan/Documents/myrepo/image-classification-
 ...
 ```
 
+- Here only 500 iterations are used (`--how_many_training_steps=500`). Inorder to improve the accuracy `--how_many_training_steps=500` parameter can be removed, i.e. default 4000 iterations will be used which improves the accuracy.
+
 ### References
 This repository is created based on the below references
 - For [TensorFlow Lite](https://www.tensorflow.org/mobile/tflite/) the new, ground up rewrite targeted at mobile devices
   use [this version of the codelab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2-tflite) 
 * For the more mature [TensorFlow Mobile](https://www.tensorflow.org/mobile/mobile_intro) use 
   [this version of the codealab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2).
+- Categorization of car training images is downloaded from [here](https://www.kaggle.com/jessicali9530/stanford-cars-dataset)
 
 This repo contains simplified and trimmed down version of tensorflow's example image classification.
