@@ -49,31 +49,30 @@ $ curl -X GET 'http://localhost:5000/health'
     - `path`: `https://st.motortrend.com/uploads/sites/10/2015/09/2012-BMW-M3-coupe-front-three-quarter1.jpg`(Some image url)
 
 ```
-➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \       
-  'http://localhost:5000/classify?path=https://st.motortrend.com/uploads/sites/10/2015/09/2012-BMW-M3-coupe-front-three-quarter1.jpg&type=url'  
-
+➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \
+  'http://localhost:5000/classify?path=https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/11q1/394021/2012-ferrari-ff-photo-394052-s-986x603.jpg&type=url'
 
 {
   "result": [
     {
-      "category": "bmw m3 coupe 2012",
-      "score": "0.42461"
+      "category": "ferrari ff coupe 2012",
+      "score": "0.95450"
     },
     {
-      "category": "bmw m5 sedan 2010",
-      "score": "0.16409"
+      "category": "mclaren mp4 12c coupe 2012",
+      "score": "0.00958"
     },
     {
-      "category": "bmw 1 series coupe 2012",
-      "score": "0.08580"
+      "category": "bugatti veyron 16 4 convertible 2009",
+      "score": "0.00581"
     },
     {
-      "category": "bmw m6 convertible 2010",
-      "score": "0.07935"
+      "category": "lamborghini aventador coupe 2012",
+      "score": "0.00544"
     },
     {
-      "category": "hyundai veloster hatchback 2012",
-      "score": "0.06590"
+      "category": "jaguar xk xkr 2012",
+      "score": "0.00435"
     }
   ]
 }
@@ -83,33 +82,34 @@ $ curl -X GET 'http://localhost:5000/health'
   - Parameters
     - `type`: `local` 
     - `path`: `/app/tf_files/car_test/Bentley Mulsanne Sedan 2011/02587.jpg`(Local path to the file)
+
 ```
-$ curl -X GET \
+➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \
   'http://localhost:5000/classify?path=/app/tf_files/car_test/Bentley%20Mulsanne%20Sedan%202011/02587.jpg&type=local'
 
-{  
-   "result":[  
-      {  
-         "category":"bentley mulsanne sedan 2011",
-         "score":"0.68615"
-      },
-      {  
-         "category":"bmw x5 suv 2007",
-         "score":"0.07509"
-      },
-      {  
-         "category":"audi s6 sedan 2011",
-         "score":"0.04333"
-      },
-      {  
-         "category":"bentley continental flying spur sedan 2007",
-         "score":"0.02404"
-      },
-      {  
-         "category":"chevrolet tahoe hybrid suv 2012",
-         "score":"0.02164"
-      }
-   ]
+{
+  "result": [
+    {
+      "category": "bentley mulsanne sedan 2011",
+      "score": "0.67537"
+    },
+    {
+      "category": "bmw x5 suv 2007",
+      "score": "0.10948"
+    },
+    {
+      "category": "audi s6 sedan 2011",
+      "score": "0.06003"
+    },
+    {
+      "category": "chevrolet tahoe hybrid suv 2012",
+      "score": "0.01831"
+    },
+    {
+      "category": "bentley continental flying spur sedan 2007",
+      "score": "0.01497"
+    }
+  ]
 }
 ```
 
