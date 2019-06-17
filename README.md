@@ -1,12 +1,11 @@
 # image-classification-grab-ai-sea-challenge
-- This project contains the necessary basic solution for the [Grab SEA Computer Vision Challenge](https://www.aiforsea.com/computer-vision)
+- This project contains the basic solution for the [Grab SEA Computer Vision Challenge](https://www.aiforsea.com/computer-vision)
 
 ### Introduction
 This repository contains a simple python API for classifying the cars based on the make, model and year.
 It includes 
 - Health check endpoint
-- Classify endpoint to classify the car make
-- Get transactions sum based on transaction id
+- Classify endpoint to classify the car make, model and year.
 
 This project uses the [TensorFlow](https://www.tensorflow.org) library for the image classification.
 
@@ -25,14 +24,14 @@ This project uses the [TensorFlow](https://www.tensorflow.org) library for the i
 
 NOTE: Here I've used PORT variable as 5000
 
-### Example executions for app
-Once the docker container is up
-
-Below commands can be used to check whether docker is up and running
+### Test the app
+- Below commands can be used to check whether docker is up and running
 ```
 ➜  image-classification-grab-ai-sea-challenge git:(master) docker ps
 
 ```
+
+- Once the docker container is up and running. Image classification can be tested.
 
 **Health Check**
 ```
@@ -44,8 +43,46 @@ $ curl -X GET 'http://localhost:5000/health'
 ```
 
 **Image Classification**
-- Testing the local image from the path**
-- 
+- Testing the online image
+  - Parameters
+    - `type`: `url` 
+    - `path`: `https://st.motortrend.com/uploads/sites/10/2015/09/2012-BMW-M3-coupe-front-three-quarter1.jpg`(Some image url)
+
+```
+➜  image-classification-grab-ai-sea-challenge git:(master) ✗ curl -X GET \       
+  'http://localhost:5000/classify?path=https://st.motortrend.com/uploads/sites/10/2015/09/2012-BMW-M3-coupe-front-three-quarter1.jpg&type=url'  
+
+
+{
+  "result": [
+    {
+      "category": "bmw m3 coupe 2012",
+      "score": "0.42461"
+    },
+    {
+      "category": "bmw m5 sedan 2010",
+      "score": "0.16409"
+    },
+    {
+      "category": "bmw 1 series coupe 2012",
+      "score": "0.08580"
+    },
+    {
+      "category": "bmw m6 convertible 2010",
+      "score": "0.07935"
+    },
+    {
+      "category": "hyundai veloster hatchback 2012",
+      "score": "0.06590"
+    }
+  ]
+}
+```
+
+- Testing the local image from the local path
+  - Parameters
+    - `type`: `local` 
+    - `path`: `/app/tf_files/car_test/Bentley Mulsanne Sedan 2011/02587.jpg`(Local path to the file)
 ```
 $ curl -X GET \
   'http://localhost:5000/classify?path=/app/tf_files/car_test/Bentley%20Mulsanne%20Sedan%202011/02587.jpg&type=local'
