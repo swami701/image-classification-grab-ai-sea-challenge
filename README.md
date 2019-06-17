@@ -28,7 +28,8 @@ NOTE: Here I've used PORT variable as 5000
 - Below commands can be used to check whether docker is up and running
 ```
 ➜  image-classification-grab-ai-sea-challenge git:(master) docker ps
-
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+a339439f82ec        imgclassify         "python start.py"   19 minutes ago      Up 19 minutes       0.0.0.0:5000->5000/tcp   imgclassify
 ```
 
 - Once the docker container is up and running. Image classification can be tested.
