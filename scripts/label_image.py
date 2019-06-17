@@ -73,9 +73,9 @@ def load_labels(label_file):
     label.append(l.rstrip())
   return label
 
-def main(file_name, type):
+def main(file_name):
   try: file_name
-  except NameError: file_name = "tf_files/hdb_faclities/Lighting Mainteinance/80.png"
+  except NameError: file_name = "tf_files/car_test/Acura Integra Type R 2001/00130.jpg"
   model_file = "tf_files/retrained_graph.pb"
   label_file = "tf_files/retrained_labels.txt"
   input_height = 224
@@ -176,7 +176,7 @@ class LabelImage(flask_restful.Resource, mixins.RegisterableMixin):
           urlretrieve(args['url'],fileName)
         else:
           fileName = url
-        result = main(fileName, type)
+        result = main(fileName)
         resp = flask.jsonify(result)
         resp.statusCode = 200
       except Exception as e:
