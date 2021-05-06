@@ -1,4 +1,4 @@
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 Flask-RESTful==0.3.6
 Flask==1.0.2
 tensorflow==1.13.1
